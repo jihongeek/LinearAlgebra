@@ -1,3 +1,3 @@
 # LinearAlgebra
-code for LinearAlgebra
-inverse matirx with adjoint matrix
+code for LinearAlgebra  
+determinant.py : about determinant(and cofactor)
