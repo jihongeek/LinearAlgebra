@@ -1,3 +1,4 @@
+import determinant
 def gcd(m,n):
     while m % n != 0:
         m,n = n, (m%n)
@@ -32,3 +33,15 @@ def multiply(matrix1 : list, matrix2 : list):
             for k in range(len(matrix1)):
                 multipliedMatrix[i][j] += (matrix1[i][k] * matrix2[k][j])
     return multipliedMatrix
+def scalarMultiply(scalar, matrix):
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            matrix[i][j] *= scalar
+    return matrix
+
+def inverse(matrix : list):
+    cofactorMatrix = [[0]*len(matrix) for _ in range(len(matrix))]
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            cofactorMatrix[i][j] = determinant.cofactor(matrix,i,j)
+    return scalarMultiply(determinant.det(matrix), transpose(cofactorMatrix))
